@@ -14,9 +14,9 @@ namespace VehicleMonitorV1.Controllers
         {
             return View();
         }*/
-        public string Index()
+        public string Index(string content)
         {
-            return "TEST";
+            return $"TEST: show {content}";
         }
     }
 }
