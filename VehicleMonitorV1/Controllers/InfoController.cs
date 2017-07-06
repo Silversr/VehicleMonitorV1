@@ -9,14 +9,15 @@ namespace VehicleMonitorV1.Controllers
     public class InfoController : Controller
     {
         // GET: Info
-        /*
+        
         public ActionResult Index()
         {
             return View();
-        }*/
-        public string Index(string content)
-        {
-            return $"TEST: show {content}";
         }
+        /*
+        public string Index(string content, int ID = 1)
+        {
+            return HttpUtility.HtmlEncode($"TEST: show {content}");
+        }*/
     }
 }
