@@ -12,6 +12,15 @@ namespace VehicleMonitorV1.Controllers
         
         public ActionResult Index()
         {
+            //ViewBag.Message = "The Vehicle 
+            return View();
+        }
+        public ActionResult Position()
+        {
+            string plate = "SUBIEWRX";
+            ViewBag.Message = $"The Vehicle {plate}";
+            ViewBag.VLat = -27;
+            ViewBag.VLon = 153;
             return View();
         }
         /*
