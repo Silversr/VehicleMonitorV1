@@ -1,7 +1,11 @@
 ﻿
 #VehicleMonitorV1Map {
-    height: 800px;
-    width: 800px;
+    
+    height: 500px;
+    width: 100%;
+
+
+
 }
 /* Optional: Makes the sample page fill the window. */
 /*
