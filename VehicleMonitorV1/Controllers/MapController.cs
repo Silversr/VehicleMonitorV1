@@ -3,17 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VehicleMonitorV1.Models;
+using System.Net;
 
 namespace VehicleMonitorV1.Controllers
 {
     public class MapController : Controller
     {
+        private List<Vehicle> VehicleList = new List<Vehicle>();
         // GET: BaseMap
-        public ActionResult BaseMap()
+        public ActionResult BaseMap(int? id)
         {
-            ViewBag.VLat = -27.4698 + (new Random().NextDouble());
-            ViewBag.VLon = 153.0251 + (new Random().NextDouble());
-            return View();
+            ViewBag.VLat = -27.4698 + (new Random().NextDouble()) / 100;
+            ViewBag.VLon = 153.0251 + (new Random().NextDouble()) / 100;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            VehicleList.Clear();
+            VehicleList.Add(Vehicle.GetAVehicleFromDB());
+            var aCar = VehicleList.Find(v => { return v.ID == id; });
+            if (null == aCar)
+            {
+                return HttpNotFound();
+            }
+            //return View(aCar);
+            return PartialView(aCar);
         }
         // GET: Map
         public ActionResult Index()

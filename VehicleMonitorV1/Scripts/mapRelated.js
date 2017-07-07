@@ -1,24 +1,29 @@
-﻿var map;
+﻿
+var map;
 var marker;
 function initMap() {
     //create a map object and specify the DOM element for display
-    var latLng = { lat: -27.4698, lng: 153.0251 };//new google.maps.LatLng(@ViewBag.VLat, @ViewBag.VLon);
+    var latLng = {lat: getVLat(), lng:getVLon()};//new google.maps.LatLng(@ViewBag.VLat, @ViewBag.VLon);
     map = new google.maps.Map(document.getElementById('VehicleMonitorV1Map'), {
         center: latLng,//required
         //scrollwheel: false,
         zoom: 15 //required
     });
-    
-     marker = new google.maps.Marker({
+    //var image = "\Resources\Images\Icons\car.png";
+    //var image = "/Resources/Images\Icons/car.png";
+    //var image = 'C:\ASPNETMVC5Learn\VehicleMonitorV1\VehicleMonitorV1\Resources\Images\Icons';
+    marker = new google.maps.Marker({
          position: latLng,
          map: map,
          draggable: true,
          label: "A", //information to be shown from model layer
-         title: "Vehicle A", //information to be shown from model layer
-         animation: google.maps.Animation.DROP
-     });
-     //marker.setIcon();
-     marker.addListener('click', toggleBounce);
+         //title: "Vehicle Lat:" + latLng,//information to be shown from model layer
+         //animation: google.maps.Animation.DROP,
+         //icon: image
+    });
+    //marker.setIcon();
+    marker.addListener('click', toggleBounce);
+   
 }
 
 function toggleBounce() {
@@ -42,4 +47,25 @@ function clear() {
     }*/
     
 }
+setInterval(function(){
+   //toggleBounce();
+   var tempP = {lat: getVLat() + Math.random() / 1000, lng:getVLon() + + Math.random() / 1000};
+   //var tempP = {lat: getVLat(), lng:getVLon()};
+   marker.setMap(null);
+   map.center = tempP;
+   marker = new google.maps.Marker({
+         position: tempP,
+         map: map,
+         //draggable: true,
+         label: "A", //information to be shown from model layer
+         //title: "Vehicle Lat:" + latLng,//information to be shown from model layer
+         //animation: google.maps.Animation.DROP,
+         //icon: image
+    });
+   marker.animation = google.maps.Animation.DROP;
+   document.getElementById('LatTitle').innerHTML = "Latitude:" + tempP.lat;
+   document.getElementById('LonTitle').innerHTML = "Longtitude:" + tempP.lng;
+   
+   //initMap();
+}, 2000);
 
