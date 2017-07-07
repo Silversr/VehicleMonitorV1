@@ -11,6 +11,8 @@ namespace VehicleMonitorV1.Controllers
         // GET: Map
         public ActionResult Index()
         {
+            ViewBag.VLat = -27.3;
+            ViewBag.VLon = 153.5;
             return View();
         }
 
