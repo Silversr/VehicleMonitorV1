@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "BaseMap";
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BaseMap</title>
+    <link rel="stylesheet" href="~/Content/mapRelated.css">
+</head>
+    
+<body>-->
+<div> <!-- emply div usually have 0 height and that why we need to explicitly define css #map Height-->
+    <h2>Vehicle Monitor V1 inside div</h2>
+</div>
+<div id="floating-panel">
+    <button id="clear" onclick="clear()">Clear Marker</button>
+</div>
+<!-- <div id="VehicleMonitorV1Map" style="width:800px;height:800px;background:yellow"></div> -->
+<div id="VehicleMonitorV1Map"></div>
+<script src="~/Scripts/mapRelated.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDb4MTAhDniYlU3Fp8kXi35C0Pbu2m_XRo&callback=initMap" async defer></script>    
+
+
+

@@ -8,12 +8,18 @@ namespace VehicleMonitorV1.Controllers
 {
     public class MapController : Controller
     {
+        // GET: BaseMap
+        public ActionResult BaseMap()
+        {
+            ViewBag.VLat = -27.4698 + (new Random().NextDouble());
+            ViewBag.VLon = 153.0251 + (new Random().NextDouble());
+            return View();
+        }
         // GET: Map
         public ActionResult Index()
         {
-            ViewBag.VLat = -27.3;
-            ViewBag.VLon = 153.5;
-            return View();
+            //RedirectToAction("BaseMap");
+            return RedirectToAction("BaseMap");
         }
 
         // GET: Map/Details/5
