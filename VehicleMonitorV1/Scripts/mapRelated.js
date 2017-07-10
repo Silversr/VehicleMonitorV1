@@ -8,7 +8,7 @@ function initMap() {
     var latLng = { lat: -27.4698, lng: 153.0251 };//new google.maps.LatLng(@ViewBag.VLat, @ViewBag.VLon);
     map = new google.maps.Map(document.getElementById('VehicleMonitorV1Map'), {
         center: latLng,//required
-        //scrollwheel: false,
+        scrollwheel: false,
         zoom: 15 //required
     });
     //var image = "\Resources\Images\Icons\car.png";
@@ -81,7 +81,7 @@ function refreshPosition() {
 }
 function refreshMarker(tempP) {
     marker.setMap(null);
-    map.center = tempP;
+    
     marker = new google.maps.Marker({
         position: tempP,
         map: map,
@@ -92,5 +92,6 @@ function refreshMarker(tempP) {
         //icon: image
     });
     marker.animation = google.maps.Animation.DROP;
+    map.setCenter(tempP);
 }
 
