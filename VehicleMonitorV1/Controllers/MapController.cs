@@ -15,8 +15,8 @@ namespace VehicleMonitorV1.Controllers
         // GET: Data
         public MapController()
         {
-            //VehicleList.Clear();
-            VehicleList.Add(Vehicle.GetAVehicleFromDB());
+            VehicleList.Clear();
+            VehicleList.Add(Vehicle.GetVehicleFromDB("502WRY"));
         }
         public ActionResult Position(int? id)
         {

@@ -67,10 +67,10 @@ function refreshPosition() {
             //var obj = JSON.parse(response);
             //alert(response);
             var tempP = {
-                lat: response.Latitude, lng: response.Longtitude
+                lat: response.Latitude, lng: response.Longitude
             };
             document.getElementById('LatTitle').innerHTML = "Latitude:" + tempP.lat;//response.Latitude;
-            document.getElementById('LonTitle').innerHTML = "Longtitude:" + tempP.lng;//response.Longtitude;
+            document.getElementById('LonTitle').innerHTML = "Longitude:" + tempP.lng;//response.Longtitude;
             refreshMarker(tempP);
         },
         error: function (error) {
