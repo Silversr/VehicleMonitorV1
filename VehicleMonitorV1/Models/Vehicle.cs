@@ -15,12 +15,10 @@ namespace VehicleMonitorV1.Models
         public int DriverID { get; }
         public double Latitude
         {
-            //get { return -27.4698 + (new Random().NextDouble()) / 1000; }
             get;set;
         }
         public double Longitude
         {
-            //get { return 153.0251 + (new Random().NextDouble()) / 1000; }
             get;set;
         }
         public double Altitude { get { return 0; } }
