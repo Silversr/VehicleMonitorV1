@@ -91,7 +91,7 @@ function refreshMarker(tempP) {
         //animation: google.maps.Animation.DROP,
         //icon: image
     });
-    marker.animation = google.maps.Animation.DROP;
+    //marker.animation = google.maps.Animation.DROP;
     map.setCenter(tempP);
 }
 
