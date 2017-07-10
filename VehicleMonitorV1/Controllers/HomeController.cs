@@ -10,7 +10,7 @@ namespace VehicleMonitorV1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("BaseMap/1","Map");
         }
 
         public ActionResult About()
