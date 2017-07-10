@@ -6,22 +6,32 @@ using System.Web.Mvc;
 using VehicleMonitorV1.Models;
 using System.Net;
 
+
 namespace VehicleMonitorV1.Controllers
 {
     public class MapController : Controller
     {
         private List<Vehicle> VehicleList = new List<Vehicle>();
+        // GET: Data
+        public MapController()
+        {
+            //VehicleList.Clear();
+            VehicleList.Add(Vehicle.GetAVehicleFromDB());
+        }
+        public ActionResult Position(int? id)
+        {
+
+            return Json(VehicleList.First(), JsonRequestBehavior.AllowGet);
+        }
         // GET: BaseMap
         public ActionResult BaseMap(int? id)
         {
-            ViewBag.VLat = -27.4698 + (new Random().NextDouble()) / 100;
-            ViewBag.VLon = 153.0251 + (new Random().NextDouble()) / 100;
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            VehicleList.Clear();
-            VehicleList.Add(Vehicle.GetAVehicleFromDB());
+            //VehicleList.Clear();
+            //VehicleList.Add(Vehicle.GetAVehicleFromDB());
             var aCar = VehicleList.Find(v => { return v.ID == id; });
             if (null == aCar)
             {

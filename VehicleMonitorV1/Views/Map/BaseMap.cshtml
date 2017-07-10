@@ -19,22 +19,14 @@
     <h2>Vehicle Monitor V1 inside div</h2>
 </div>
 <div id="floating-panel">
-    <button id="clear" onclick="clear()">Clear Marker</button>
+    <button id="TestButton" onclick="OnTestButton()">TestButton</button>
 </div>
 <!-- <div id="VehicleMonitorV1Map" style="width:800px;height:800px;background:yellow"></div> -->
 <div><h3 id="LatTitle">@Html.DisplayNameFor(model => model.Latitude):@Html.DisplayFor(model => model.Latitude)</h3></div>
 <div><h3 id="LonTitle">@Html.DisplayNameFor(model => model.Longtitude):@Html.DisplayFor(model => model.Longtitude)</h3></div>
+<div id="Test"><h2>Starting content test</h2></div>
 <div id="VehicleMonitorV1Map"></div>
-<script>
-    function getPosition(){
-        return {VLat: @Html.DisplayFor(model => model.Latitude),
-                VLon: @Html.DisplayFor(model => model.Longtitude)};
-    }
-    function getVLat(){ return @Model.Latitude;}//@Html.DisplayFor(model => model.Latitude); }
-    function getVLon(){ return @Model.Longtitude;}//Html.DisplayFor(model => model.Longtitude); }
-</script>
 <script src="~/Scripts/mapRelated.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDb4MTAhDniYlU3Fp8kXi35C0Pbu2m_XRo&callback=initMap" async defer></script>    
-
 
 
